@@ -14,7 +14,7 @@ class PostViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if 'id' in self.kwargs:
             idnr = self.kwargs['id']
-            return Post.objects.all().filter(id=idnr).distinct()
+            return Post.objects.filter(id=idnr).all()
         return Post.objects.all()
 
 
