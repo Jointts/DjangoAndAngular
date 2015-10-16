@@ -9,15 +9,11 @@ app.config(function ($interpolateProvider) {
 
 app.controller('PostListController', function PostListController($scope, $http) {
 
-    //  Needed for creating a new post with unique id
-    var idnr = 0;
-
     //  Function to retrieve all the posts
     $scope.postList = function () {
         $http.get('/api/posts/').success(function (data) {
             $scope.posts = data;
             $scope.posts.reverse();
-            idnr = $scope.posts.length;
         });
     };
 
@@ -25,7 +21,7 @@ app.controller('PostListController', function PostListController($scope, $http) 
     $scope.saveItem = function () {
         //  Check if all form fields are filled, if not, dont post
         if ($scope.postForm.$valid) {
-            var in_data = {id: idnr, title: $scope.newPost.title, description: $scope.newPost.description};
+            var in_data = {title: $scope.newPost.title, description: $scope.newPost.description};
             $http.post('/api/posts/', in_data).success(function () {
                 $scope.postList();
             });
