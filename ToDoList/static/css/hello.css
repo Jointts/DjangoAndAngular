@@ -1,0 +1,19 @@
+.panel {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.close{
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.col-sm-6{
+    max-width: 500px;
+}
+
+.postEditor{
+    margin-top: 250px;
+}
+
+

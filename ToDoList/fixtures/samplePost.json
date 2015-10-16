@@ -1,0 +1,16 @@
+[
+  {
+    "model": "ToDoList.Post",
+    "fields": {
+      "title": "Hello",
+      "description": "world!"
+    }
+  },
+  {
+    "model": "ToDoList.Post",
+    "fields": {
+      "title": "Hello",
+      "description": "world! 2"
+    }
+  }
+]

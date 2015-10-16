@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/hello.css" %}">
+</head>
+<body ng-app="ToDoList">
+<div class="content" ng-controller="PostListController">
+    <form name="postForm">
+        <div class="panel postEditor">
+            <h1>Create new ToDo item</h1><br>
+            <div class="form-group">
+            <!-- li>Category: <input type="text" name="category" ng-model="currentItem.category"/><span class="error">{[{ errors.category }]}</span></li -->
+            <p class="well">Title <input type="text" name="title" class="form-control" ng-model="newPost.title" required/><p/>
+
+            <p class="well">Description <input type="text" name="description" class="form-control" ng-model="newPost.description" required />
+            </p>
+        <button ng-click="saveItem()" class="btn">Save</button>
+                <hr>
+                </div>
+    </form>
+    <div class="panel" ng-repeat="post in posts">
+        <button class="close" ng-click="deleteItem(post.id)">X</button>
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title">{|{ post.title }|}</h3>
+        </div>
+        <p class="well">{|{ post.description }|}</p>
+    </div>
+</div>
+
+<script src="{% static "jquery/jquery.js" %}"></script>
+<script src="{% static "angular/angular.min.js" %}"></script>
+<script src="{% static "js/Controller.js" %}"></script>
+
+</body>
+</html>
