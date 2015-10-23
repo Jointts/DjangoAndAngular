@@ -8,12 +8,14 @@ class CreatePostTest(APITestCase):
         url = '/api/posts/'
         data = {"title": "asd", "description": "sdfsdf"}
         response = self.client.post(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code,
+                         status.HTTP_201_CREATED)
 
 
 class GetPostTest(APITestCase):
     def setUp(self):
-        self.post = Post.objects.create(title='TestCase', description='TestCase')
+        self.post = Post.objects.create(title='TestCase',
+                                        description='TestCase')
 
     def test_post_get(self):
         url = '/api/posts/' + str(self.post.id) + '/'
@@ -23,9 +25,11 @@ class GetPostTest(APITestCase):
 
 class DeletePostTest(APITestCase):
     def setUp(self):
-        self.post = Post.objects.create(title='TestCase', description='TestCase')
+        self.post = Post.objects.create(title='TestCase',
+                                        description='TestCase')
 
     def test_post_delete(self):
         url = '/api/posts/' + str(self.post.id) + '/'
         response = self.client.delete(url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(response.status_code,
+                         status.HTTP_204_NO_CONTENT)

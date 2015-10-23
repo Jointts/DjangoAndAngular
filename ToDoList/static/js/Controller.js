@@ -21,7 +21,10 @@ app.controller('PostListController', function PostListController($scope, $http) 
     $scope.saveItem = function () {
         //  Check if all form fields are filled, if not, dont post
         if ($scope.postForm.$valid) {
-            var in_data = {title: $scope.newPost.title, description: $scope.newPost.description};
+            var in_data = {
+                title: $scope.newPost.title,
+                description: $scope.newPost.description
+            };
             $http.post('/api/posts/', in_data).success(function () {
                 $scope.postList();
             });

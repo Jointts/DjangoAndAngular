@@ -20,5 +20,3 @@ class PostViewSet(viewsets.ModelViewSet):
 
 def index(request):
     return render_to_response('posts.html', RequestContext(request))
-
-
